@@ -1,0 +1,152 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <a class="navbar-brand" href="#"><strong>Gallery</strong></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="https://mygall.herokuapp.com/">Home <span class="sr-only">(current)</span></a>
+            </li>
+
+        </ul>
+        <ul class="navbar-nav ml-auto ">
+            <li class="">
+                <a class="nav-link" href="/users/sign_in">Log In</a>
+            </li>
+           
+        </ul>
+    </div>
+</nav>
+
+<div class="container-fluid bg-info mb-3">
+    <div class="row ml-2 p-1 bg-info align-items-center">
+        <div class="col">
+            <p class="font-weight-bold h1 text-white shadow p-1 rounded-lg">WellCome To Sign Up</p>
+        </div>
+       
+    </div>
+</div>
+
+<div class="container rounded-lg shadow-lg" style="padding:30px">
+    <p class="text-center h4">:::::::: <u>Upload your image here with very easy way</u> ::::::::</p>
+    <div class="row pt-4">
+        <div class="col-2-flex">
+            <!--left side space-->
+            <ul class="list-group rounded-lg">
+                <li class="list-group-item list-group-item-dark active font-weight-bold">Features Available</li>
+                <li class="list-group-item list-group-item-dark">Sign Up</li>
+                <li class="list-group-item list-group-item-dark">Sign In</li>
+                <li class="list-group-item list-group-item-dark">Upload</li>
+                <li class="list-group-item list-group-item-dark">Save</li>
+                <li class="list-group-item list-group-item-dark">View</li>
+                <li class="list-group-item list-group-item-dark">Delete</li>
+                <li class="list-group-item list-group-item-dark active">Easy To Use</li>
+
+            </ul>
+        </div>
+
+        <div class="col-7">
+
+            <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-interval="3000">
+                        <div class="d-block w-100">
+
+                            <img src="https://miro.medium.com/max/9062/1*cQVnasG-zV1TuFGOW3Kd4w.jpeg" class="d-block w-100" alt="Smiley" height="392px" width="615px">
+
+
+                            <div class="carousel-caption d-none d-md-block">
+                                <h2>Store your memories with friends</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item" data-interval="3000">
+                        <div class="d-block w-100">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSQtr_CG--MSNPtZzWVCMatCd07XmJmoyTLiomOiH3w4Zvfyjd8&usqp=CAU" class="d-block w-100" alt="Smiley" height="392px" width="615px">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h2>Store your memories with beautiful places.</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item" data-interval="3000">
+                        <div class="d-block w-100">
+                            <img src="https://www.noordinaryhomestead.com/wp-content/uploads/2016/08/college-group-photos-500x333.jpg" class="d-block w-100" alt="Smiley" height="392px" width="615px">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h2>Store your memories with lots Of Fun.</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item" data-interval="3000">
+                        <div class="d-block w-100">
+                            <img src="https://i.pinimg.com/originals/fa/3b/0a/fa3b0a756425aec5fe53b83b4d1fc0cd.jpg" class="d-block w-100" alt="Smiley" height="392px" width="615px">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h2>Store your memories with fun.</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item" data-interval="3000">
+                        <div class="d-block w-100">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQnaS_IgzHOqpM-ElIn5qbYBYfniThEdWZqp4rSZ1aZ8Mu8lo1n&usqp=CAU" class="d-block w-100" alt="Smiley" height="392px" width="615px">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h2>Store your memories.</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="col col-3 rounded-lg bg-light shadow-lg mr-3rem "><br>
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <h2>Sign up</h2>
+            <div class="field pt-2">
+                <%= f.label :email %><br />
+                <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            </div>
+
+            <div class="field pt-2">
+                <%= f.label :password %>
+                <% if @minimum_password_length %>
+
+                (<%= @minimum_password_length %> characters minimum)
+
+                <% end %><br />
+                <%= f.password_field :password, autocomplete: "new-password" %>
+            </div>
+
+            <div class="field pt-2">
+                <%= f.label :password_confirmation %><br />
+                <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+            </div>
+
+            <div class="field pt-2">
+                <%= f.label :admin, "If you are User, Don't mark." %>
+                <%= f.check_box :admin %>
+            </div>
+
+            <div class="actions pt-3 pb-3">
+                <%= f.submit "Sign up" %>
+            </div>
+
+            <% end %>
+
+
+
+
+
+        </div>
+
+
+
+    </div>
+</div>

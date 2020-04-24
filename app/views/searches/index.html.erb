@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<% if @search.search_albums? %>
+<p> No Record Found </p>
+
+<% else %>
+
+<% @search.search_albums.each do |sea| %>
+<p>
+    <strong>User:</strong>
+    <%= @sea.user %>
+</p>
+
+<p>
+    <strong>Title:</strong>
+    <%= @sea.title %>
+</p>
+
+<p>
+    <strong>Description:</strong>
+    <%= @sea.description %>
+</p>
+
+<p>
+    <strong>Tag:</strong>
+    <%= @sea.tag %>
+</p>
+<% end %>
+<% end %>
+
+<%= link_to 'Back', new_searches_path %>

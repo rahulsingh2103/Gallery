@@ -1,0 +1,96 @@
+<%= form_with(model: album, local: true) do |form| %>
+<% if album.errors.any? %>
+<div id="error_explanation">
+    <h2><%= pluralize(album.errors.count, "error") %> prohibited this album from being saved:</h2>
+
+    <ul>
+        <% album.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+    </ul>
+</div>
+<% end %>
+
+<div class="row ">
+
+    <div class="container ">
+        <div class="row h5">
+            <div class="col-4 ">
+
+            </div>
+            <div class="col-6 shadow-lg pt-4">
+
+                <div class="row pb-2">
+                    <div class="col-3">
+                        <%= form.label :title %>
+                    </div>
+                    <div class="col-9">
+
+                        <%= form.text_field :title %>
+                    </div>
+                </div>
+
+                <div class="row pb-2">
+                    <div class="col-3">
+
+                        <%= form.label :description %>
+                    </div>
+                    <div class="col-9">
+
+                        <%= form.text_field :discription %>
+                    </div>
+                </div>
+
+                <div class="row pb-2">
+                    <div class="col-3">
+                        <%= form.label :tag %>
+                    </div>
+                    <div class="col-9">
+                        <%= form.text_field :tag %>
+                    </div>
+                </div>
+
+
+                <div class="row pb-2">
+                    <div class="col-3">
+
+                        <%= form.label :images %>
+                    </div>
+                    <div class="col-9">
+
+                        <%= form.file_field :images, multiple: true %>
+                    </div>
+                </div>
+
+                <div class="row pb-2">
+                    <div class="col-3">
+                    </div>
+                    <div class="col-9">
+                        <div class="actions">
+                            <%= form.submit %>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+
+                    <div class="col-3">
+                    </div>
+                    <div class="col-9 ">
+                        <button class="float-right">
+                            <%= link_to 'Back', albums_path %>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-3">
+
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<% end %>

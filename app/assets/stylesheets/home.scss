@@ -1,0 +1,13 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+html {
+    scroll-behavior: smooth; }
+  
+  /*padding from the fix-top body   */
+  #portfolio, #sign, #contactme, #aboutme, #cpp, #ruby, #python, #cqq, #reup {
+    scroll-margin-top: 62px; }
+  
+  #log {
+    scroll-margin-top: 100px; }
