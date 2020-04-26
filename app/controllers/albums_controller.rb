@@ -1,12 +1,14 @@
 class AlbumsController < ApplicationController
-  before_action :authenticate_user!, except: [:show, :index ]
+  before_action :authenticate_user!, except: [:index, :allimages, :show]
   before_action :set_album, only: [:show, :edit, :update, :destroy]
+
+  
+
+
 
   # GET /albums
   # GET /albums.json
   def index
-
-
    # @search = Album.search(params[:q])
    # @albums = @search.result
    #   if var ==true
@@ -33,6 +35,7 @@ class AlbumsController < ApplicationController
      
 
   end
+  
 
   # GET /albums/1
   # GET /albums/1.json
@@ -97,7 +100,18 @@ class AlbumsController < ApplicationController
     redirect_back(fallback_location: albums_url)
   end
 
- 
+  def search
+    @albums=Album.where("title LIKE ?","%" + params[:q] + "%")
+  end
+
+  def allimages
+    if user_signed_in?
+      redirect_to albums_path
+      else
+       @search_recentupload = Album.ransack(params[:q])
+       @albums = @search_recentupload.result.includes(:user).page(params[:page])
+      end
+  end
 
  
 

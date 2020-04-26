@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <a class="navbar-brand" href="#"><strong>Gallery</strong></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <%= link_to  "Home", root_path, class:"nav-link text-white" %>
+            </li>
+
+
+        </ul>
+        <ul class="navbar-nav ml-auto ">
+            <li class="mt-1 mr-1">
+                <%= search_form_for @search_recentupload do |f| %>
+                <%= f.text_field :title_or_tag_or_discription_cont %>
+                <%= f.submit "Search", class:"btn-secondary" %>
+                <% end %>
+            </li>
+            <li>
+                <a class="nav-link" href="/users/sign_in">Log In</a>
+            </li>
+            <li>
+                <a class="nav-link" href="/users/sign_up">Sign up</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container mt-5">
+<h3>Recent Upload</h3>
+    <div class="row border-dark mb-5 pt-5">
+        <% @albums.each do |album| %>
+        <div class="col mr-2 card">
+
+            <div class="card-body ">
+                <p><strong>User: </strong><%= album.user.email.split('@')[0] %></p>
+                <p><strong>Title: </strong><%= album.title %></p>
+                <p><strong>Published On: </strong><span class="text-muted"><%= album.created_at.to_s.split(' ')[0] %></span></p>
+                <p><strong>Last Updated: </strong><span class="text-muted"><%= album.updated_at.to_s.split(' ')[0] %></span></p>
+                <%= link_to 'Show', album , class:'btn btn-secondary text-white btn-sm' %>
+            </div>
+        </div>
+        <% end %>
+    </div>
+</div>
+<%= paginate @albums %>

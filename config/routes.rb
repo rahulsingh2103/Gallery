@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :searches
+
   root 'home#index'
+
 
   resources :albums
   
@@ -9,6 +10,8 @@ Rails.application.routes.draw do
     delete :delete_upload
     end
   end
+
+  get "allimages" => 'albums#allimages'
 
   devise_for :users, controllers: { registrations: "registrations"}
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
