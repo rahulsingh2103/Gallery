@@ -4,7 +4,9 @@ class AlbumsController < ApplicationController
 
   
 
-
+  def allimages
+     @albums = Album.where(["title LIKE ?", "%#{params[:search]}%"]).page(params[:page])
+  end
 
   # GET /albums
   # GET /albums.json
@@ -104,14 +106,7 @@ class AlbumsController < ApplicationController
     @albums=Album.where("title LIKE ?","%" + params[:q] + "%")
   end
 
-  def allimages
-    if user_signed_in?
-      redirect_to albums_path
-      else
-       @search_recentupload = Album.ransack(params[:q])
-       @albums = @search_recentupload.result.includes(:user).page(params[:page])
-      end
-  end
+ 
 
  
 
