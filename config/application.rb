@@ -32,5 +32,3 @@ module Gallery
 end
 
 
-end
-
