@@ -22,7 +22,7 @@ module Gallery
       :domain           => 'mail.google.com',
       :port             =>  587,
       :user_name        => "rahulsingh.bluebash@gmail.com",
-      :password         => "XXXXXXXXXXX",
+      :password         => "r@hulSingh8786",
       :authentication   => 'login',
       :enable_starttls_auto  => true
     }
