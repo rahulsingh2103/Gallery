@@ -21,8 +21,8 @@ module Gallery
       :address          => 'smtp.gmail.com',
       :domain           => 'mail.google.com',
       :port             =>  587,
-      :user_name        => "rahulsingh.bluebash@gmail.com",
-      :password         => "r@hulSingh8786",
+      :user_name        => ENV["rahulsingh.bluebash@gmail.com"],
+      :password         => ENV["r@hulSingh8786"],
       :authentication   => 'login',
       :enable_starttls_auto  => true
     }
