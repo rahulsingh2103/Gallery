@@ -13,5 +13,10 @@ class AlbumMailerPreview < ActionMailer::Preview
     AlbumMailer.create_album(album)
   end
 
+  def edit_album
+    album = Album.last
+    AlbumMailer.edit_album(album)
+  end
+
 
 end

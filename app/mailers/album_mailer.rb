@@ -1,5 +1,5 @@
 class AlbumMailer < ApplicationMailer
-  before_action :authenticate_user!, except: [:destroy_album, :create_album]
+  before_action :authenticate_user!, except: [:destroy_album, :create_album, :edit_album]
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
@@ -14,6 +14,11 @@ class AlbumMailer < ApplicationMailer
   def create_album(album)
     mail to: album.user.email, 
          subject: "Album has been created"                 
+  end
+
+  def edit_album(album)
+    mail to: album.user.email, 
+         subject: "Album has been edited"                 
   end
 
 end
