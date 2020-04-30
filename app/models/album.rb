@@ -7,12 +7,10 @@ class Album < ApplicationRecord
     validates :discription, presence: true
     validates :images, presence: true 
 
+   
     def thumbnail input
         return self.images[input].variant(resize: '300x400!').processed
     end
-
-
-
 
 end
 
