@@ -2,6 +2,7 @@ class Album < ApplicationRecord
     paginates_per 3
     belongs_to :user
     has_many_attached :images
+    has_many :comments
 
     validates :title, presence: true
     validates :discription, presence: true

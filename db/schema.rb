@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_28_110415) do
+ActiveRecord::Schema.define(version: 2020_05_02_065635) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,14 @@ ActiveRecord::Schema.define(version: 2020_04_28_110415) do
     t.index ["user_id"], name: "index_albums_on_user_id"
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.bigint "album_id", null: false
+    t.text "note"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["album_id"], name: "index_comments_on_album_id"
+  end
+
   create_table "searches", force: :cascade do |t|
     t.string "user"
     t.string "title"
@@ -84,4 +92,5 @@ ActiveRecord::Schema.define(version: 2020_04_28_110415) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "albums", "users"
+  add_foreign_key "comments", "albums"
 end

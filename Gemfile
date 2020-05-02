@@ -64,3 +64,4 @@ gem 'popper_js'
 gem 'tether-rails'
 gem 'kaminari'
 gem 'ransack'
+gem "pundit"

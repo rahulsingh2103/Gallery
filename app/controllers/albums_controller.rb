@@ -5,8 +5,10 @@ class AlbumsController < ApplicationController
   
 
   def allimages
-     @albums = Album.where(["title LIKE ?", "%#{params[:search]}%"]).page(params[:page])
-  end
+     @albums = Album.order(created_at: :desc).where(["title LIKE ?", "%#{params[:search]}%"]).page(params[:page])
+     @album = Album.includes(:comments).first
+
+    end
 
   # GET /albums
   # GET /albums.json
@@ -29,10 +31,14 @@ class AlbumsController < ApplicationController
       if var ==true
         @search_admin = Album.ransack(params[:q])
         @albums = @search_admin.result.includes(:user).page(params[:page])
+        @album = Album.includes(:comments).first
+
       else
        # @albums = current_user.albums
         @search_current = current_user.albums.ransack(params[:q])
         @albums = @search_current.result.includes(:user).page(params[:page])
+        @album = Album.includes(:comments).first
+
       end
      
 
@@ -42,7 +48,6 @@ class AlbumsController < ApplicationController
   # GET /albums/1
   # GET /albums/1.json
   def show
-  
   end
   
   # GET /albums/new

@@ -40,12 +40,18 @@
                             <%= @album.discription %></h5>
                         <p class="">Publish On :<%= @album.created_at.to_s.split(' ')[0] %></p>
                         <p> Tags: <%= @album.tag %> </p>
+                        <div class="card-footer text-muted">
+                            <% @album.comments.find_each do |comment| %> <li><%= comment.note %></li>
+                            <% end %>
+                        </div>
 
-                        <div class="card-footer ">
+                        <div>
 
                             <%= link_to 'Remove', delete_upload_album_url(@album.images[image]), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-lg float-right shadow-lg" %>
                         </div>
+
                     </div>
+
 
                 </div>
             </div>
@@ -74,6 +80,11 @@
                 <div class="card">
                     <%= image_tag(@album.thumbnail(image) )%>
                 </div>
+
+            </div>
+            <div class="card-footer text-muted">
+                <% @album.comments.find_each do |comment| %> <li><%= comment.note %></li>
+                <% end %>
             </div>
         </div>
         <% end %>
