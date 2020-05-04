@@ -40,7 +40,11 @@
                 <p><strong>Last Updated: </strong><span class="text-muted"><%= album.updated_at.to_s.split(' ')[0] %></span></p>
                 <%= link_to 'Show', album , class:'btn btn-secondary text-white btn-sm' %>
             </div>
-            
+            <div class="card-footer text-muted">
+               Comments: <% @album.comments.find_each do |comment| %>
+                <li><%= comment.note %></li>
+                <% end %>
+            </div>
         </div>
         <% end %>
     </div>
