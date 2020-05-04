@@ -30,7 +30,7 @@ class AlbumsController < ApplicationController
        #   @albums = Album.order(:title).page(params[:page])
       #else
        #   @albums = current_user.albums.page(params[:page])
-      #end
+     
     
       
      var = current_user.admin
