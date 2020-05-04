@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :allimages, :show, :destroy_album, :edit_album]
+  before_action :authenticate_user!, except: [:index, :allimages, :show, :destroy_album, :edit_album, :homepage]
   before_action :set_album, only: [:show, :edit, :update, :destroy]
 
   
@@ -8,7 +8,13 @@ class AlbumsController < ApplicationController
      @albums = Album.order(created_at: :desc).where(["title LIKE ?", "%#{params[:search]}%"]).page(params[:page])
      @album = Album.includes(:comments).first
 
+  end
+
+  def homepage
+    if user_signed_in?
+      redirect_to albums_path
     end
+  end
 
   # GET /albums
   # GET /albums.json
