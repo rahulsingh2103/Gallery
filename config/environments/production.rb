@@ -1,8 +1,12 @@
 Rails.application.configure do
   # Prepare the ingress controller used to receive mail
-   config.action_mailbox.ingress = :relay
+  # config.action_mailbox.ingress = :relay
 
   # Settings specified here will take precedence over those in config/application.rb.
+
+  
+  # doesn't have to be Heroku, but you get the idea.
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
   # Code is not reloaded between requests.
   config.cache_classes = true
@@ -61,7 +65,7 @@ Rails.application.configure do
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
   # config.active_job.queue_adapter     = :resque
-  # config.active_job.queue_name_prefix = "Gallery_production"
+  # config.active_job.queue_name_prefix = "gallery2_production"
 
   config.action_mailer.perform_caching = false
 
@@ -105,17 +109,9 @@ Rails.application.configure do
   # class timestamps to determine how long to wait before reading from the
   # replica.
   #
-  # By default Rails will store a last write timestamp in the session. The
-  # DatabaseSelector middleware is designed as such you can define your own
-  # strategy for connection switching and pass that into the middleware through
-  # these configuration options.
-  # config.active_record.database_selector = { delay: 2.seconds }
-  # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
-  # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
-  
-  
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
- 
+  config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
     port: 587,
@@ -125,5 +121,11 @@ Rails.application.configure do
     user_name: "commonemail638@gmail.com",
     password: "01Common01"
   }
-
+  # By default Rails will store a last write timestamp in the session. The
+  # DatabaseSelector middleware is designed as such you can define your own
+  # strategy for connection switching and pass that into the middleware through
+  # these configuration options.
+  # config.active_record.database_selector = { delay: 2.seconds }
+  # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
+  # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 end
