@@ -73,7 +73,7 @@ Rails.application.configure do
     authentication: "plain",
     enable_starttls_auto: true,
     user_name: "commonemail638@gmail.com",
-    password: "01common01"
+    password: "01Common01"
   }
   
 
