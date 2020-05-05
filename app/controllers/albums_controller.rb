@@ -116,6 +116,8 @@ class AlbumsController < ApplicationController
        end
   end
 
+
+  
   def delete_upload
     attachment = ActiveStorage::Attachment.find(params[:id])
     attachment.purge # or use purge_later
