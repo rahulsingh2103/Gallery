@@ -1,32 +1,3 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-    <a class="navbar-brand" href="#"><strong>Gallery</strong></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <%= link_to  "Home", root_path, class:"nav-link text-white" %>
-            </li>
-
-
-        </ul>
-        <ul class="navbar-nav ml-auto ">
-            <li class="mt-1 mr-1">
-                <%= form_for albums_path, :method => 'get' do %>
-                <%= text_field_tag :search, params[:search] %>
-                <%= submit_tag "Search", class:"btn-secondary" %>
-                <% end %>
-            </li>
-            <li>
-                <a class="nav-link" href="/users/sign_in">Log In</a>
-            </li>
-            <li>
-                <a class="nav-link" href="/users/sign_up">Sign up</a>
-            </li>
-        </ul>
-    </div>
-</nav>
 <div class="container mt-5">
     <h3>Recent Upload</h3>
     <div class="row border-dark mb-5 pt-5">
@@ -41,9 +12,7 @@
                 <%= link_to 'Show', album , class:'btn btn-secondary text-white btn-sm' %>
             </div>
             <div class="card-footer text-muted">
-               Comments: <% @album.comments.find_each do |comment| %>
-                <li><%= comment.note %></li>
-                <% end %>
+                Tags : <%= album.tag %>
             </div>
         </div>
         <% end %>

@@ -14,6 +14,9 @@ class AlbumsController < ApplicationController
     if user_signed_in?
       redirect_to albums_path
     end
+
+    @albums = Album.all
+
   end
 
   # GET /albums
