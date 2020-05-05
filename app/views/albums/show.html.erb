@@ -9,11 +9,13 @@
             <strong>Title:</strong>
             <%= @album.title %>
         </div>
+        <% if current_user.admin? || current_user.email == @album.user.email %>
 
         <div class="col-1 ">
             <%= link_to 'Edit', edit_album_path(@album), class: "btn btn-lg btn-secondary float-right text-white" %>
 
         </div>
+        <% end %>
         <div class="col-1 ">
             <%= link_to 'Back', albums_path, class:"btn btn-lg btn-secondary  text-center float-right text-white" %>
 
