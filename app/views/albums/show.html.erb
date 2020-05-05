@@ -44,12 +44,12 @@
                             <% @album.comments.find_each do |comment| %> <li><%= comment.note %></li>
                             <% end %>
                         </div>
-
+                        <% if current_user.admin? || current_user.email == @album.user.email %>
                         <div>
 
                             <%= link_to 'Remove', delete_upload_album_url(@album.images[image]), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-lg float-right shadow-lg" %>
                         </div>
-
+                        <% end %>
                     </div>
 
 
